@@ -6,4 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".Showimg_toiletreport">
 
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="398dp"
+        android:layout_height="724dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
 </androidx.constraintlayout.widget.ConstraintLayout>

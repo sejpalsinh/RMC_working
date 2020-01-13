@@ -1,4 +1,7 @@
 package com.example.rmc;
+import android.content.Context;
+import android.net.ConnectivityManager;
+
 import com.android.volley.AuthFailureError;
 import com.android.volley.NetworkResponse;
 import com.android.volley.ParseError;
@@ -11,7 +14,11 @@ import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.net.InetAddress;
 import java.util.Map;
+
+import static androidx.core.content.ContextCompat.getSystemService;
+
 public class VolleyMultipartRequest extends Request<NetworkResponse> {
     private final String twoHyphens = "--";
     private final String lineEnd = "\r\n";
@@ -118,6 +125,7 @@ public class VolleyMultipartRequest extends Request<NetworkResponse> {
         }
         dataOutputStream.writeBytes(lineEnd);
     }
+
     class DataPart {
         private String fileName;
         private byte[] content;
