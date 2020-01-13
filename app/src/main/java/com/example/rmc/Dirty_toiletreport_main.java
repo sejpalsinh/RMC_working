@@ -1,8 +1,8 @@
 package com.example.rmc;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -23,10 +23,12 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-public class Dirty_toiletreport_main extends AppCompatActivity {
+public class Dirty_toiletreport_main extends AppCompatActivity { //Waste_pickupreport_main
     EditText et_name,et_number,et_location,et_discription;
     public static Bitmap bitmap;
     Boolean imageSet = true;
+    SharedPreferences preferences;
+    SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,8 @@ public class Dirty_toiletreport_main extends AppCompatActivity {
         et_number = findViewById(R.id.et_number);
         et_location = findViewById(R.id.et_location);
         et_discription = findViewById(R.id.et_discription);
+        preferences = getSharedPreferences("ssiprajkot", MODE_PRIVATE);
+        editor = preferences.edit();
     }
 
     public void getTheImage(View view) {
@@ -156,6 +160,7 @@ public class Dirty_toiletreport_main extends AppCompatActivity {
                 params.put("number",et_number.getText().toString());
                 params.put("location",et_location.getText().toString());
                 params.put("discription",et_discription.getText().toString());
+                params.put("email",preferences.getString("uemail", "sejsinh01@gmail.com"));
                 return params;
             }
             @Override
