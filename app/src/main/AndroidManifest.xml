@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.rmc">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,9 +14,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".Showimg_wastepickupreport"></activity>
-        <activity android:name=".Showimg_animalreport" />
-        <activity android:name=".Showimg_toiletreport" />
+        <activity
+            android:name=".Showimg_wastepickupreport"
+            android:parentActivityName=".Waste_pickupreport_main"/>
+        <activity
+            android:name=".Showimg_animalreport"
+            android:parentActivityName=".Injured_animalreport_main"/>
+        <activity
+            android:name=".Showimg_toiletreport"
+            android:parentActivityName=".Showimg_toiletreport"/>
         <activity
             android:name=".Injured_animalreport_main"
             android:parentActivityName=".MainActivity" />
@@ -35,7 +44,6 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
