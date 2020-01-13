@@ -61,6 +61,11 @@ public class Injured_animalreport_main extends AppCompatActivity {
     }
 
     public void showImg(View view) {
+        if(imageSet)
+        {
+            Toast.makeText(getApplicationContext(),"First select image", Toast.LENGTH_SHORT).show();
+            return;
+        }
         startActivity(new Intent(getApplicationContext(),Showimg_toiletreport.class));
     }
 

@@ -61,6 +61,11 @@ public class Dirty_toiletreport_main extends AppCompatActivity { //Waste_pickupr
     }
 
     public void showImg(View view) {
+        if(imageSet)
+        {
+            Toast.makeText(getApplicationContext(),"First select image", Toast.LENGTH_SHORT).show();
+            return;
+        }
         startActivity(new Intent(getApplicationContext(),Showimg_toiletreport.class));
     }
 
