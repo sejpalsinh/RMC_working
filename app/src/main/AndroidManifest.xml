@@ -19,6 +19,7 @@
         tools:ignore="GoogleAppIndexingWarning">
 
         <activity android:name=".Splash_screen" >
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -51,7 +52,9 @@
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".Food_adultration_main"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".MainActivity" >
+
+        </activity>
         <activity android:name=".MainActivity"/>
 
     </application>
