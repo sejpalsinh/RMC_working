@@ -4,16 +4,15 @@
     "steps": " \t1. Put a drop of milk on a polished slanting surface \n \t2. Pure milk either stays or flows slowly leaving a white trail behind \n \t3. Milk adultrated with water will flow immediately without leaving a mark",
     "imageSuccess": "milk_t1",
     "imageFailure": "milk_f1"
-  }],
-
-  "milk_products-HN": [{
-    "title": "दूध की जांच विधि में पानी का पता लगाना:",
-    "steps": " \t1. एक पॉलिश की गई सतह पर दूध की एक बूंद डालें \n \t2. शुद्ध दूध या तो ठहर जाता है या धीरे-धीरे सफेद निशान छोड़ता है।  \n \t3. पानी से मिलावटी दूध बिना किसी निशान के तुरंत निकल जाएगा",
+  },
+    {
+    "title": "Detection of water in milk",
+    "steps": " \t1. Put a drop of milk on a polished slanting surface \n \t2. Pure milk either stays or flows slowly leaving a white trail behind \n \t3. Milk adultrated with water will flow immediately without leaving a mark",
     "imageSuccess": "milk_t1",
     "imageFailure": "milk_f1"
   }],
 
-  "milk_products-GJ": [{
+  "milk_products-HN": [{
     "title": "दूध की जांच विधि में पानी का पता लगाना:",
     "steps": " \t1. एक पॉलिश की गई सतह पर दूध की एक बूंद डालें \n \t2. शुद्ध दूध या तो ठहर जाता है या धीरे-धीरे सफेद निशान छोड़ता है।  \n \t3. पानी से मिलावटी दूध बिना किसी निशान के तुरंत निकल जाएगा",
     "imageSuccess": "milk_t1",
@@ -22,6 +21,20 @@
     {
     "title": "दूध की जांच विधि में पानी का पता लगाना:",
     "steps": " \t1. एक पॉलिश की गई सतह पर दूध की एक बूंद डालें \n \t2. शुद्ध दूध या तो ठहर जाता है या धीरे-धीरे सफेद निशान छोड़ता है।  \n \t3. पानी से मिलावटी दूध बिना किसी निशान के तुरंत निकल जाएगा",
+    "imageSuccess": "milk_t1",
+    "imageFailure": "milk_f1"
+  }],
+
+  "milk_products-GJ": [
+    {
+    "title": "दદૂધમાં પાણીની તપાસ પરીક્ષણ પદ્ધતિ:",
+    "steps": " \t1. પોલિશ્ડ સ્લેંટિંગ સપાટી પર દૂધનો એક ટીપો મૂકો. \n \t2. શુદ્ધ દૂધ કાં તો રહે છે અથવા વહે છે ધીમે ધીમે સફેદ પગેરું પાછળ છોડી દો.   \n \t3. ઓ પાણીમાં ભેળસેળ કરેલું દૂધ નિશાન છોડ્યા વિના તરત જ વહેશે",
+    "imageSuccess": "milk_t1",
+    "imageFailure": "milk_f1"
+  },
+    {
+    "title": "दદૂધમાં પાણીની તપાસ પરીક્ષણ પદ્ધતિ:",
+    "steps": " \t1. પોલિશ્ડ સ્લેંટિંગ સપાટી પર દૂધનો એક ટીપો મૂકો. \n \t2. શુદ્ધ દૂધ કાં તો રહે છે અથવા વહે છે ધીમે ધીમે સફેદ પગેરું પાછળ છોડી દો.   \n \t3. ઓ પાણીમાં ભેળસેળ કરેલું દૂધ નિશાન છોડ્યા વિના તરત જ વહેશે",
     "imageSuccess": "milk_t1",
     "imageFailure": "milk_f1"
   }]
