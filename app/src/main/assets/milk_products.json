@@ -1,4 +1,33 @@
 {
+  "menuFoodAdulteration": [
+    {
+      "title" : "Milk and Milk Products",
+      "img" : "milk",
+      "src" : "milk_products"
+    },
+    {
+      "title" : "Oils and Fats",
+      "img" : "oils",
+      "src" : "oils"
+    },
+    {
+      "title" : "Sugars and Confectionery",
+      "img" : "sugars"
+    },
+    {
+      "title" : "Salts, Spices and Condiments",
+      "img" : "spices"
+    },
+    {
+      "title" : "Fruits and Vegetables",
+      "img" : "fruits"
+    },
+    {
+      "title" : "Beverages",
+      "img" : "beverages"
+    }
+  ],
+
   "milk_products": [{
     "title": "Detection of water in milk",
     "steps": " \t1. Put a drop of milk on a polished slanting surface \n \t2. Pure milk either stays or flows slowly leaving a white trail behind \n \t3. Milk adultrated with water will flow immediately without leaving a mark",
@@ -27,7 +56,7 @@
 
   "milk_products-GJ": [
     {
-    "title": "दદૂધમાં પાણીની તપાસ પરીક્ષણ પદ્ધતિ:",
+    "title": "દૂધમાં પાણીની તપાસ પરીક્ષણ પદ્ધતિ:",
     "steps": " \t1. પોલિશ્ડ સ્લેંટિંગ સપાટી પર દૂધનો એક ટીપો મૂકો. \n \t2. શુદ્ધ દૂધ કાં તો રહે છે અથવા વહે છે ધીમે ધીમે સફેદ પગેરું પાછળ છોડી દો.   \n \t3. ઓ પાણીમાં ભેળસેળ કરેલું દૂધ નિશાન છોડ્યા વિના તરત જ વહેશે",
     "imageSuccess": "milk_t1",
     "imageFailure": "milk_f1"

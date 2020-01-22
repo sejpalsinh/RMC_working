@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -24,8 +23,6 @@ public class Food_adultration_main extends AppCompatActivity {
     JSONObject json_milk_products;
     ImageView testSuccess, testFailure;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,14 +37,22 @@ public class Food_adultration_main extends AppCompatActivity {
         try {
             json_milk_products = new JSONObject(OpenJSON.readJSONFromAsset(getApplicationContext(), "milk_products.json"));
 
-            fillRecyclerWithLanguate("milk_products");
+
+            Log.d("dart", String.valueOf(json_milk_products.length()));
+
+            String src = getIntent().getStringExtra("src");
+            Log.i("src", src);
+            if(!src.equals("")){
+                fillRecyclerWithLanguage(src);
+            }
+
 
         } catch (JSONException e) {
             e.printStackTrace();
         }
     }
 
-    private void fillRecyclerWithLanguate(String lang) {
+    private void fillRecyclerWithLanguage(String lang) {
         try {
             milk_products = json_milk_products.getJSONArray(lang);
             RecyclerView fillMilkProducts = findViewById(R.id.showMilkProducts);
@@ -70,13 +75,13 @@ public class Food_adultration_main extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.english:
-                fillRecyclerWithLanguate("milk_products");
+                fillRecyclerWithLanguage("milk_products");
                 return true;
             case R.id.hindi:
-                fillRecyclerWithLanguate("milk_products-HN");
+                fillRecyclerWithLanguage("milk_products-HN");
                 return true;
             case R.id.gujarati:
-                fillRecyclerWithLanguate("milk_products-GJ");
+                fillRecyclerWithLanguage("milk_products-GJ");
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

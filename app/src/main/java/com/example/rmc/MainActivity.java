@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void goto_1_activity(View view) {
-        startActivity(new Intent(getApplicationContext(),Food_adultration_main.class));
+        startActivity(new Intent(getApplicationContext(), MenuFoodAdulteration.class));
     }
 
     public void goto_2_activity(View view) {
