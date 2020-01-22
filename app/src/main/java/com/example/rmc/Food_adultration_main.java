@@ -33,14 +33,23 @@ public class Food_adultration_main extends AppCompatActivity {
             json_milk_products = new JSONObject(OpenJSON.readJSONFromAsset(getApplicationContext(), "milk_products.json"));
             //milk_content.setText(json_milk_products.toString());
 
-            milk_products = json_milk_products.getJSONArray("milk_products");
+            milk_products = json_milk_products.getJSONArray("milk_products-HN");
 
             for(int i = 0; i < milk_products.length(); i++){
                 JSONObject jsonObject1= milk_products.getJSONObject(i);
                 milk_title.setText(jsonObject1.getString("title"));
                 milk_content.setText(jsonObject1.getString("steps"));
-                testSuccess.setImageResource(R.drawable.milk_t1);
-                testFailure.setImageResource(R.drawable.milk_f1);
+
+                String s_name = jsonObject1.getString("imageSuccess");
+                int resID = getResources().getIdentifier(s_name,
+                        "drawable", getPackageName());
+                testSuccess.setImageResource(resID);
+
+                s_name = jsonObject1.getString("imageFailure");
+                resID = getResources().getIdentifier(s_name,
+                        "drawable", getPackageName());
+                testFailure.setImageResource(resID);
+
             }
 
         } catch (JSONException e) {

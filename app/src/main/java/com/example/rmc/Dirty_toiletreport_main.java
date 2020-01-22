@@ -34,6 +34,8 @@ public class Dirty_toiletreport_main extends AppCompatActivity { //Waste_pickupr
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dirty_toiletreport_main);
+
+
         et_name = findViewById(R.id.et_name);
         et_number = findViewById(R.id.et_number);
         et_location = findViewById(R.id.et_location);

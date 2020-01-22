@@ -33,7 +33,7 @@ public class Injured_animalreport_main extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dirty_toiletreport_main);
+        setContentView(R.layout.activity_injured_animalreport_main);
         et_name = findViewById(R.id.et_name);
         et_number = findViewById(R.id.et_number);
         et_location = findViewById(R.id.et_location);
