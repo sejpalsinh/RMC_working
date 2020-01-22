@@ -55,11 +55,5 @@ public class Food_adultration_main extends AppCompatActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
-
-
-
-
-
     }
 }

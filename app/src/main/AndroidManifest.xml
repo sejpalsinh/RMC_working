@@ -20,10 +20,6 @@
 
         <activity android:name=".Splash_screen" >
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".UserLogin" />
         <activity
@@ -53,6 +49,12 @@
         <activity
             android:name=".Food_adultration_main"
             android:parentActivityName=".MainActivity" >
+
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
         </activity>
         <activity android:name=".MainActivity"/>
