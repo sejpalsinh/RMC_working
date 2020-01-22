@@ -116,7 +116,7 @@
         android:ems="10"
         android:gravity="center"
         android:inputType="textPersonName"
-        android:text="NON PICKUP WASTE"
+        android:text="@string/report_non_pickup_waste"
         android:textColor="#0E023A"
         android:textSize="24sp"
         android:textStyle="bold"

@@ -117,7 +117,7 @@
         android:ems="10"
         android:gravity="center"
         android:inputType="textPersonName"
-        android:text="REPORT DIRTY TOILET"
+        android:text="@string/report_dirty_toilet"
         android:textColor="#0E023A"
         android:textSize="24sp"
         android:textStyle="bold"

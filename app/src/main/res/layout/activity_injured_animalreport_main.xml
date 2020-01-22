@@ -116,7 +116,7 @@
         android:ems="10"
         android:gravity="center"
         android:inputType="textPersonName"
-        android:text="INJURED ANIMAL REPORT"
+        android:text="@string/injured_animal_report"
         android:textColor="#0E023A"
         android:textSize="24sp"
         android:textStyle="bold"
