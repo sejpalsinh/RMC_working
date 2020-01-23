@@ -1,9 +1,12 @@
 package com.example.rmc;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
@@ -29,6 +32,7 @@ public class Injured_animalreport_main extends AppCompatActivity {
     Boolean imageSet = true;
     SharedPreferences preferences;
     SharedPreferences.Editor editor;
+    private ProgressDialog progress = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +44,22 @@ public class Injured_animalreport_main extends AppCompatActivity {
         et_discription = findViewById(R.id.et_discription);
         preferences = getSharedPreferences("ssiprajkot", MODE_PRIVATE);
         editor = preferences.edit();
+    }
+
+    public void showLoadingDialog() {
+
+        if (progress == null) {
+            progress = new ProgressDialog(this);
+            progress.setTitle("Loading");
+            progress.setMessage("Please Wait");
+        }
+        progress.show();
+    }
+    public void dismissLoadingDialog() {
+
+        if (progress != null && progress.isShowing()) {
+            progress.dismiss();
+        }
     }
 
     public void getTheImage(View view) {
@@ -102,6 +122,7 @@ public class Injured_animalreport_main extends AppCompatActivity {
             Toast.makeText(getApplicationContext(),"Not Connected to Internet", Toast.LENGTH_SHORT).show();
             return;
         }
+        showLoadingDialog();
         uploadDataToServer();
 
     }
@@ -118,6 +139,14 @@ public class Injured_animalreport_main extends AppCompatActivity {
     }
 
 
+    public void noimageSelect(View view) {
+        bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.noimg);
+        imageSet = false;
+    }
+
+    public void imageSelect(View view) {
+        imageSet = true;
+    }
 
     //for image upload
 
@@ -135,13 +164,14 @@ public class Injured_animalreport_main extends AppCompatActivity {
     }
 
     private void uploadDataToServer() {
-        String UPLOAD_URL = "http://injuredanimal.tonysolutions.co/insertdata.php";
+        String UPLOAD_URL = "http://complaintormc.tonysolutions.co/injuredanimal/insertdata.php";
         System.out.println("thisthisthis : "+UPLOAD_URL);
         VolleyMultipartRequest volleyMultipartRequest = new VolleyMultipartRequest(Request.Method.POST, UPLOAD_URL,
                 new Response.Listener<NetworkResponse>() {
                     @Override
                     public void onResponse(NetworkResponse response) {
                         try {
+                            dismissLoadingDialog();
                             JSONObject obj = new JSONObject(new String(response.data));
                             Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_SHORT).show();
                             System.out.println("msgmsgmsg :"+obj.getString("message"));
@@ -154,6 +184,7 @@ public class Injured_animalreport_main extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
+                        dismissLoadingDialog();
                         Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
                         System.out.println("erererer ");
                     }
@@ -178,4 +209,6 @@ public class Injured_animalreport_main extends AppCompatActivity {
         };
         Volley.newRequestQueue(this).add(volleyMultipartRequest);
     }
+
+
 }

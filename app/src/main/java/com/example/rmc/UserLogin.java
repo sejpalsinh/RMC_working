@@ -1,5 +1,7 @@
 package com.example.rmc;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -18,20 +20,40 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
-
 public class UserLogin extends AppCompatActivity {
-
     EditText mail;
     SharedPreferences preferences;
     SharedPreferences.Editor editor;
+    private ProgressDialog progress = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_login);
         preferences = getSharedPreferences("ssiprajkot", MODE_PRIVATE);
         editor = preferences.edit();
+        if(!preferences.getString("uemail", " ").equals(" "))
+        {
+            startActivity(new Intent(getApplicationContext(),MainActivity.class));
+            finish();
+        }
         mail = findViewById(R.id.et_mail);
     }
+    public void showLoadingDialog() {
+
+        if (progress == null) {
+            progress = new ProgressDialog(this);
+            progress.setTitle("Loading");
+            progress.setMessage("Please Wait");
+        }
+        progress.show();
+    }
+    public void dismissLoadingDialog() {
+
+        if (progress != null && progress.isShowing()) {
+            progress.dismiss();
+        }
+    }
+
     private void uploadUserdata() {
         if (mail.getText().toString().trim().isEmpty()) {
             mail.setError("Enter Mail address first");
@@ -49,6 +71,7 @@ public class UserLogin extends AppCompatActivity {
                     @Override
                     public void onResponse(NetworkResponse response) {
                         try {
+                            dismissLoadingDialog();
                             JSONObject obj = new JSONObject(new String(response.data));
                             Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_SHORT).show();
                             editor.putString("uemail",mail.getText().toString());
@@ -64,7 +87,9 @@ public class UserLogin extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
+                        dismissLoadingDialog();
                         Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
+                        System.out.println("ErErErErEr : "+error);
                     }
                 }) {
             @Override
@@ -84,6 +109,7 @@ public class UserLogin extends AppCompatActivity {
     }
 
     public void regist(View view) {
+        showLoadingDialog();
         uploadUserdata();
     }
 }

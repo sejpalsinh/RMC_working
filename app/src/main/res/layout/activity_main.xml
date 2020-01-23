@@ -8,36 +8,19 @@
 
     <Button
         android:id="@+id/food_adultration"
-        android:layout_width="141dp"
+        android:layout_width="0dp"
         android:layout_height="125dp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="64dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="40dp"
         android:background="@drawable/shape"
         android:onClick="goto_1_activity"
         android:text=" food adultration"
         android:textColor="#FAFAFA"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/water_reuse"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/water_reuse"
-        android:layout_width="141dp"
-        android:layout_height="125dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="40dp"
-        android:background="@drawable/shape"
-        android:onClick="goto_2_activity"
-        android:text="Water Reuse Guide"
-        android:textColor="#FAFAFA"
-        android:textSize="16sp"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/food_adultration"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
@@ -72,7 +55,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/waste_segregation"
-        app:layout_constraintTop_toBottomOf="@+id/water_reuse" />
+        app:layout_constraintTop_toBottomOf="@+id/food_adultration" />
 
     <Button
         android:id="@+id/toilet_report"

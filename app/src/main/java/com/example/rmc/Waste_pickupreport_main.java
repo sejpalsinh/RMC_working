@@ -1,5 +1,7 @@
 package com.example.rmc;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -29,7 +31,7 @@ public class Waste_pickupreport_main extends AppCompatActivity {
     Boolean imageSet = true;
     SharedPreferences preferences;
     SharedPreferences.Editor editor;
-
+    private ProgressDialog progress = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +43,23 @@ public class Waste_pickupreport_main extends AppCompatActivity {
         preferences = getSharedPreferences("ssiprajkot", MODE_PRIVATE);
         editor = preferences.edit();
     }
+
+    public void showLoadingDialog() {
+
+        if (progress == null) {
+            progress = new ProgressDialog(this);
+            progress.setTitle("Loading");
+            progress.setMessage("Please Wait");
+        }
+        progress.show();
+    }
+    public void dismissLoadingDialog() {
+
+        if (progress != null && progress.isShowing()) {
+            progress.dismiss();
+        }
+    }
+
 
     public void getTheImage(View view) {
         Intent i = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
@@ -59,7 +78,6 @@ public class Waste_pickupreport_main extends AppCompatActivity {
             }
         }
     }
-
     public void showImg(View view) {
         if(imageSet)
         {
@@ -68,9 +86,7 @@ public class Waste_pickupreport_main extends AppCompatActivity {
         }
         startActivity(new Intent(getApplicationContext(),Showimg_toiletreport.class));
     }
-
     public void senDataServer(View view) {
-
         if (et_name.getText().toString().trim().isEmpty()) {
             et_name.setError("Enter Name first");
             et_name.requestFocus();
@@ -102,8 +118,8 @@ public class Waste_pickupreport_main extends AppCompatActivity {
             Toast.makeText(getApplicationContext(),"Not Connected to Internet", Toast.LENGTH_SHORT).show();
             return;
         }
+        showLoadingDialog();
         uploadDataToServer();
-
     }
     public void clearForm()
     {
@@ -135,13 +151,14 @@ public class Waste_pickupreport_main extends AppCompatActivity {
     }
 
     private void uploadDataToServer() {
-        String UPLOAD_URL = "http://wastepickup.tonysolutions.co/insertdata.php";
+        String UPLOAD_URL = "http://complaintormc.tonysolutions.co/wastepickup/insertdata.php";
         System.out.println("thisthisthis : "+UPLOAD_URL);
         VolleyMultipartRequest volleyMultipartRequest = new VolleyMultipartRequest(Request.Method.POST, UPLOAD_URL,
                 new Response.Listener<NetworkResponse>() {
                     @Override
                     public void onResponse(NetworkResponse response) {
                         try {
+                            dismissLoadingDialog();
                             JSONObject obj = new JSONObject(new String(response.data));
                             Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_SHORT).show();
                             System.out.println("msgmsgmsg :"+obj.getString("message"));
@@ -154,6 +171,7 @@ public class Waste_pickupreport_main extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
+                        dismissLoadingDialog();
                         Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
                         System.out.println("erererer ");
                     }

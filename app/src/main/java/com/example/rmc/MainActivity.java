@@ -17,9 +17,6 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(getApplicationContext(), MenuFoodAdulteration.class));
     }
 
-    public void goto_2_activity(View view) {
-        startActivity(new Intent(getApplicationContext(),Water_reuseguide_main.class));
-    }
 
     public void goto_3_activity(View view) {
         startActivity(new Intent(getApplicationContext(),Waste_segregation_main.class));

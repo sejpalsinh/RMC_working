@@ -1,5 +1,6 @@
 package com.example.rmc;
 import androidx.appcompat.app.AppCompatActivity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -29,19 +30,32 @@ public class Dirty_toiletreport_main extends AppCompatActivity { //Waste_pickupr
     Boolean imageSet = true;
     SharedPreferences preferences;
     SharedPreferences.Editor editor;
-
+    private ProgressDialog progress = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dirty_toiletreport_main);
-
-
         et_name = findViewById(R.id.et_name);
         et_number = findViewById(R.id.et_number);
         et_location = findViewById(R.id.et_location);
         et_discription = findViewById(R.id.et_discription);
         preferences = getSharedPreferences("ssiprajkot", MODE_PRIVATE);
         editor = preferences.edit();
+    }
+    public void showLoadingDialog() {
+
+        if (progress == null) {
+            progress = new ProgressDialog(this);
+            progress.setTitle("Loading");
+            progress.setMessage("Please Wait");
+        }
+        progress.show();
+    }
+    public void dismissLoadingDialog() {
+
+        if (progress != null && progress.isShowing()) {
+            progress.dismiss();
+        }
     }
 
     public void getTheImage(View view) {
@@ -104,6 +118,7 @@ public class Dirty_toiletreport_main extends AppCompatActivity { //Waste_pickupr
             Toast.makeText(getApplicationContext(),"Not Connected to Internet", Toast.LENGTH_SHORT).show();
             return;
         }
+        showLoadingDialog();
         uploadDataToServer();
 
     }
@@ -137,13 +152,14 @@ public class Dirty_toiletreport_main extends AppCompatActivity { //Waste_pickupr
     }
 
     private void uploadDataToServer() {
-        String UPLOAD_URL = "http://dirtytoilet.tonysolutions.co/insertdata.php";
+        String UPLOAD_URL = "http://complaintormc.tonysolutions.co/dirtytoilet/insertdata.php";
         System.out.println("thisthisthis : "+UPLOAD_URL);
         VolleyMultipartRequest volleyMultipartRequest = new VolleyMultipartRequest(Request.Method.POST, UPLOAD_URL,
                 new Response.Listener<NetworkResponse>() {
                     @Override
                     public void onResponse(NetworkResponse response) {
                         try {
+                            dismissLoadingDialog();
                             JSONObject obj = new JSONObject(new String(response.data));
                             Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_SHORT).show();
                             System.out.println("msgmsgmsg :"+obj.getString("message"));
@@ -156,8 +172,11 @@ public class Dirty_toiletreport_main extends AppCompatActivity { //Waste_pickupr
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
+                        dismissLoadingDialog();
                         Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
-                        System.out.println("erererer ");
+                        progress.dismiss();
+                        progress.cancel();
+                        System.out.println("erererer "+error);
                     }
                 }) {
             @Override

@@ -81,14 +81,14 @@
                             android:layout_width="200dp"
                             android:layout_height="200dp"
                             android:layout_weight="1"
-                            android:contentDescription="@string/success" />
+                            android:contentDescription="success" />
 
                         <ImageView
                             android:id="@+id/imageFailure"
                             android:layout_width="200dp"
                             android:layout_height="200dp"
                             android:layout_weight="1"
-                            android:contentDescription="@string/failure" />
+                            android:contentDescription="failure" />
                     </LinearLayout>
 
                 </LinearLayout>

@@ -36,14 +36,9 @@ public class Splash_screen extends AppCompatActivity {
         new Timer().schedule(new TimerTask() {
             @Override
             public void run() {
-                if(!preferences.getString("uemail", "").equals(""))
-                {
-                    startActivity(new Intent(getApplicationContext(),MainActivity.class));
-                    finish();
-                }
                 startActivity(new Intent(getApplicationContext(),UserLogin.class));
                 finish();
             }
-        },2000);
+        },1000);
     }
 }
