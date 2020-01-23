@@ -1,10 +1,15 @@
 package com.example.rmc;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -31,35 +36,55 @@ public class Food_adultration_main extends AppCompatActivity {
 
         try {
             json_milk_products = new JSONObject(OpenJSON.readJSONFromAsset(getApplicationContext(), "milk_products.json"));
-            //milk_content.setText(json_milk_products.toString());
 
-            milk_products = json_milk_products.getJSONArray("milk_products-HN");
 
-            for(int i = 0; i < milk_products.length(); i++){
-                JSONObject jsonObject1= milk_products.getJSONObject(i);
-                milk_title.setText(jsonObject1.getString("title"));
-                milk_content.setText(jsonObject1.getString("steps"));
+            Log.d("dart", String.valueOf(json_milk_products.length()));
 
-                String s_name = jsonObject1.getString("imageSuccess");
-                int resID = getResources().getIdentifier(s_name,
-                        "drawable", getPackageName());
-                testSuccess.setImageResource(resID);
-
-                s_name = jsonObject1.getString("imageFailure");
-                resID = getResources().getIdentifier(s_name,
-                        "drawable", getPackageName());
-                testFailure.setImageResource(resID);
-
+            String src = getIntent().getStringExtra("src");
+            Log.i("src", src);
+            if(!src.equals("")){
+                fillRecyclerWithLanguage(src);
             }
+
 
         } catch (JSONException e) {
             e.printStackTrace();
         }
+    }
 
+    private void fillRecyclerWithLanguage(String lang) {
+        try {
+            milk_products = json_milk_products.getJSONArray(lang);
+            RecyclerView fillMilkProducts = findViewById(R.id.showMilkProducts);
+            MilkProductsRecycler adapRecycler = new MilkProductsRecycler(getApplicationContext(), milk_products);
+            fillMilkProducts.setAdapter(adapRecycler);
+            fillMilkProducts.setLayoutManager(new LinearLayoutManager(this));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.language, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
 
-
-
-
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.english:
+                fillRecyclerWithLanguage("milk_products");
+                return true;
+            case R.id.hindi:
+                fillRecyclerWithLanguage("milk_products-HN");
+                return true;
+            case R.id.gujarati:
+                fillRecyclerWithLanguage("milk_products-GJ");
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }
