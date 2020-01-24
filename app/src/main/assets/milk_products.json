@@ -29,14 +29,15 @@
   ],
 
   "milk_products": [{
+    "id" : 1,
     "title": "Detection of water in milk",
-    "steps": " \t1. Put a drop of milk on a polished slanting surface \n \t2. Pure milk either stays or flows slowly leaving a white trail behind \n \t3. Milk adultrated with water will flow immediately without leaving a mark",
+    "steps": ["1. Put a drop of milk on a polished slanting surface", "2. Pure milk either stays or flows slowly leaving a white trail behind", "3. Milk adultrated with water will flow immediately without leaving a mark"],
     "imageSuccess": "milk_t1",
     "imageFailure": "milk_f1"
   },
-    {
+    {"id" : 2,
     "title": "Detection of water in milk",
-    "steps": " \t1. Put a drop of milk on a polished slanting surface \n \t2. Pure milk either stays or flows slowly leaving a white trail behind \n \t3. Milk adultrated with water will flow immediately without leaving a mark",
+    "steps": ["1. Put a drop of milk on a polished slanting surface", "2. Pure milk either stays or flows slowly leaving a white trail behind", "3. Milk adultrated with water will flow immediately without leaving a mark"],
     "imageSuccess": "milk_t1",
     "imageFailure": "milk_f1"
   }],
