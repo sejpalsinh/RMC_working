@@ -25,10 +25,8 @@ public class MainActivity extends AppCompatActivity {
     public void goto_1_activity(View view) {
         startActivity(new Intent(getApplicationContext(), BottomNavMain.class));
     }
-
-
     public void goto_3_activity(View view) {
-        startActivity(new Intent(getApplicationContext(),Waste_segregation_main.class));
+        startActivity(new Intent(getApplicationContext(),food_complain.class));
     }
 
     public void goto_4_activity(View view) {
@@ -48,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
         menuInflater.inflate(R.menu.mainacty , menu);
         return super.onCreateOptionsMenu(menu);
     }
-
     public void log_out(MenuItem item) {
         editor.putString("uemail"," ");
         editor.putString("uname"," ");
@@ -57,8 +54,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(getApplicationContext(),UserLogin.class));
         finish();
     }
-
     public void abt_Us(MenuItem item) {
 
     }
+
 }

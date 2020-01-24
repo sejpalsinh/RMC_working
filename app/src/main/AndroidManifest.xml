@@ -17,8 +17,10 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".DiseaseData"></activity>
-        <activity android:name=".MenuFoodAdulteration"></activity>
+        <activity android:name=".food_law"></activity>
+        <activity android:name=".show_food_image" />
+        <activity android:name=".food_complain" />
+        <activity android:name=".MenuFoodAdulteration" />
         <activity android:name=".Splash_screen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -46,14 +48,11 @@
             android:name=".Waste_pickupreport_main"
             android:parentActivityName=".MainActivity" />
         <activity
-            android:name=".Waste_segregation_main"
-            android:parentActivityName=".MainActivity" />
-        <activity
             android:name=".Food_adultration_main"
-            android:parentActivityName=".MainActivity"></activity>
+            android:parentActivityName=".MainActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".BottomNavMain" />
-        <activity android:name=".Photobased"></activity>
+        <activity android:name=".Photobased" />
         <activity android:name=".photo_chili" />
         <activity android:name=".photo_blackppr" />
         <activity android:name=".photo_greenpea" />
