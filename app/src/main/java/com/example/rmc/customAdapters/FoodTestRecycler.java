@@ -18,17 +18,24 @@ public class FoodTestRecycler extends RecyclerView.Adapter<FoodTestRecycler.Menu
 
     List<FoodTestModel> modelList;
     Context context;
+    OnMenuTestListener onMenuTestListener;
 
-    public FoodTestRecycler(Context context, List<FoodTestModel> modelList) {
+    public FoodTestRecycler(Context context, List<FoodTestModel> modelList, OnMenuTestListener onMenuTestListener) {
         this.modelList = modelList;
         this.context = context;
+        this.onMenuTestListener = onMenuTestListener;
     }
+
+    public int getClickedTestID(int position){
+        return modelList.get(position).getId();
+    }
+
 
     @NonNull
     @Override
     public MenuFoodFragmentViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.one_menu_food, parent, false);
-        MenuFoodFragmentViewHolder viewHolder = new MenuFoodFragmentViewHolder(view);
+        MenuFoodFragmentViewHolder viewHolder = new MenuFoodFragmentViewHolder(view, onMenuTestListener);
         return viewHolder;
     }
 
@@ -43,16 +50,26 @@ public class FoodTestRecycler extends RecyclerView.Adapter<FoodTestRecycler.Menu
         return modelList.size();
     }
 
-    public class MenuFoodFragmentViewHolder extends RecyclerView.ViewHolder {
+    public class MenuFoodFragmentViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         TextView testTitle;
         LinearLayout linearLayout;
+        OnMenuTestListener onMenuTestListener;
 
-        public MenuFoodFragmentViewHolder(@NonNull View itemView) {
+        public MenuFoodFragmentViewHolder(@NonNull View itemView, OnMenuTestListener onMenuTestListener) {
             super(itemView);
             testTitle = itemView.findViewById(R.id.testTitle);
             linearLayout = itemView.findViewById(R.id.parent_one_menu_food);
 
         }
 
+        @Override
+        public void onClick(View view) {
+            onMenuTestListener.OnMenuTestClickListener(getAdapterPosition());
+
+        }
+    }
+
+    public interface OnMenuTestListener{
+        void OnMenuTestClickListener(int position);
     }
 }

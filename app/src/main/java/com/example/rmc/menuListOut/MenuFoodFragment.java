@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -24,7 +25,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MenuFoodFragment extends Fragment {
+public class MenuFoodFragment extends Fragment implements FoodTestRecycler.OnMenuTestListener{
 
     JSONObject json_menu_all;
     JSONArray menuList;
@@ -68,17 +69,15 @@ public class MenuFoodFragment extends Fragment {
             for(int i = 0; i < menuList.length(); i++){
                 JSONObject object = menuList.getJSONObject(i);
                 Log.i("json_menu_all_list", object.getString("title"));
+
                 modelList.add(new FoodTestModel(object.getString("title"), object.getInt("id")));
             }
 
             Log.i("modelList", String.valueOf(modelList.size()));
 
-            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-            linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-
             recyclerView = getView().findViewById(R.id.fragment_menu_food_recycler);
 
-            foodTestRecycler = new FoodTestRecycler(getContext(), modelList);
+            foodTestRecycler = new FoodTestRecycler(getContext(), modelList, this);
 
             recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
             recyclerView.setAdapter(foodTestRecycler);
@@ -86,7 +85,12 @@ public class MenuFoodFragment extends Fragment {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+    }
 
-
+    @Override
+    public void OnMenuTestClickListener(int position) {
+        int id = foodTestRecycler.getClickedTestID(position);
+        Log.i("listID", String.valueOf(id));
+        Toast.makeText(getActivity(), String.valueOf(id), Toast.LENGTH_SHORT).show();
     }
 }
