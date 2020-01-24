@@ -49,7 +49,7 @@ public class FoodAdultrationFragment extends Fragment implements MenuFoodRecycle
             e.printStackTrace();
         }
 
-        Toast.makeText(getContext(), "Hey", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getContext(), "Hey", Toast.LENGTH_SHORT).show();
     }
 
     private void fillMenu(String menu) {
@@ -70,7 +70,7 @@ public class FoodAdultrationFragment extends Fragment implements MenuFoodRecycle
     public void OnMenuFoodClickListener(int position) {
         String src = menuFoodRecycler.getClickedMenuName(position);
         Toast.makeText(getContext(), src, Toast.LENGTH_SHORT).show();
-        Fragment moveFragment = new OneTest();
+        Fragment moveFragment = new MenuFoodFragment();
         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,
                 moveFragment).commit();
         Log.i("mnuList", src);

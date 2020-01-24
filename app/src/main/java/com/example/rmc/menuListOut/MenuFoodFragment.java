@@ -17,6 +17,7 @@ import com.example.rmc.OpenJSON;
 import com.example.rmc.R;
 import com.example.rmc.customAdapters.FoodTestModel;
 import com.example.rmc.customAdapters.FoodTestRecycler;
+import com.example.rmc.menus.OneTest;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -56,8 +57,6 @@ public class MenuFoodFragment extends Fragment implements FoodTestRecycler.OnMen
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        modelList = new ArrayList<>();
-
         try {
             json_menu_all = new JSONObject(OpenJSON.readJSONFromAsset(getContext(), "milk_products.json"));
 
@@ -66,18 +65,9 @@ public class MenuFoodFragment extends Fragment implements FoodTestRecycler.OnMen
             menuList = json_menu_all.getJSONArray("milk_products");
             Log.i("json_menu_all_list", menuList.toString());
 
-            for(int i = 0; i < menuList.length(); i++){
-                JSONObject object = menuList.getJSONObject(i);
-                Log.i("json_menu_all_list", object.getString("title"));
-
-                modelList.add(new FoodTestModel(object.getString("title"), object.getInt("id")));
-            }
-
-            Log.i("modelList", String.valueOf(modelList.size()));
-
             recyclerView = getView().findViewById(R.id.fragment_menu_food_recycler);
 
-            foodTestRecycler = new FoodTestRecycler(getContext(), modelList, this);
+            foodTestRecycler = new FoodTestRecycler(getContext(), menuList, this);
 
             recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
             recyclerView.setAdapter(foodTestRecycler);
@@ -91,6 +81,44 @@ public class MenuFoodFragment extends Fragment implements FoodTestRecycler.OnMen
     public void OnMenuTestClickListener(int position) {
         int id = foodTestRecycler.getClickedTestID(position);
         Log.i("listID", String.valueOf(id));
-        Toast.makeText(getActivity(), String.valueOf(id), Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(), String.valueOf(id), Toast.LENGTH_SHORT).show();
+
+        Fragment moveFragment = new OneTest();
+
+        for(int i = 0 ; i < menuList.length(); i++){
+            try {
+                JSONObject object = menuList.getJSONObject(i);
+                if(object.getInt("id") == id){
+                    Bundle bundle = new Bundle();
+                    bundle.putString("title", object.getString("title"));
+                    JSONArray jsonSteps = object.getJSONArray("steps");
+                    String[] steps = new String[jsonSteps.length()];
+
+                    for(int j = 0; i < jsonSteps.length(); i++){
+                        steps[i] = jsonSteps.getString(i);
+                    }
+
+                    bundle.putStringArray("steps", steps);
+                    bundle.putString("imageSuccess", object.getString("imageSuccess"));
+
+                    moveFragment.setArguments(bundle);
+
+//                    Toast.makeText(getContext(), steps[0], Toast.LENGTH_SHORT).show();
+//                    Log.i("Steps", steps.toString());
+
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+        }
+
+
+        getActivity().getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragmentContainer,
+                moveFragment)
+                .commit();
+
     }
 }

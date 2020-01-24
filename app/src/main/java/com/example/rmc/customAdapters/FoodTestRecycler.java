@@ -12,22 +12,30 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.rmc.R;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+
 import java.util.List;
 
 public class FoodTestRecycler extends RecyclerView.Adapter<FoodTestRecycler.MenuFoodFragmentViewHolder> {
 
-    List<FoodTestModel> modelList;
+    JSONArray modelList;
     Context context;
     OnMenuTestListener onMenuTestListener;
 
-    public FoodTestRecycler(Context context, List<FoodTestModel> modelList, OnMenuTestListener onMenuTestListener) {
+    public FoodTestRecycler(Context context, JSONArray modelList, OnMenuTestListener onMenuTestListener) {
         this.modelList = modelList;
         this.context = context;
         this.onMenuTestListener = onMenuTestListener;
     }
 
     public int getClickedTestID(int position){
-        return modelList.get(position).getId();
+        try {
+            return modelList.getJSONObject(position).getInt("id");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return 0;
     }
 
 
@@ -41,13 +49,17 @@ public class FoodTestRecycler extends RecyclerView.Adapter<FoodTestRecycler.Menu
 
     @Override
     public void onBindViewHolder(@NonNull FoodTestRecycler.MenuFoodFragmentViewHolder holder, int position) {
-        holder.testTitle.setText(modelList.get(position).getTestName());
+        try {
+            holder.testTitle.setText(modelList.getJSONObject(position).getString("title"));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
     }
 
     @Override
     public int getItemCount() {
-        return modelList.size();
+        return modelList.length();
     }
 
     public class MenuFoodFragmentViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
@@ -59,7 +71,8 @@ public class FoodTestRecycler extends RecyclerView.Adapter<FoodTestRecycler.Menu
             super(itemView);
             testTitle = itemView.findViewById(R.id.testTitle);
             linearLayout = itemView.findViewById(R.id.parent_one_menu_food);
-
+            this.onMenuTestListener = onMenuTestListener;
+            itemView.setOnClickListener(this);
         }
 
         @Override
