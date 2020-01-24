@@ -12,6 +12,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.io.IOException;
@@ -19,12 +20,14 @@ import java.io.IOException;
 public class photo_blackppr extends AppCompatActivity {
     public static Bitmap bitmap;
     TextView tv;
+    ImageView imgv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_photo_blackppr);
         tv = findViewById(R.id.result);
+        imgv = findViewById(R.id.img);
     }
 
     public void getImage(View view) {
@@ -49,26 +52,31 @@ public class photo_blackppr extends AppCompatActivity {
     public void img_5_crp(Bitmap bit_5) {
         bit_5 = Bitmap.createBitmap(bit_5, 50,00,(bit_5.getWidth()-150),(bit_5.getHeight()-(bit_5.getHeight()/2)));
         Palette p = Palette.from(bit_5).generate();
+        System.out.println("dddddddddddddddddddddddddd");
+        tv.setVisibility(View.VISIBLE);
         Palette.Swatch vibrant = p.getDarkVibrantSwatch(); //getVibrantSwatch(); // //getDarkMutedSwatch();
         int titleColor=00;
         if(vibrant != null){
             titleColor  = vibrant.getRgb();
+
         }
         else
         {
             tv.setText("Not Adultered");
+            System.out.println("111nononononnonon");
             return;
         }
         tv.setTextColor(titleColor);
         String hexColor = String.format("#%06X", (0xFFFFFF & titleColor));
-        tv.setVisibility(View.VISIBLE);
         if(Color.blue(titleColor)<Color.red(titleColor) && Color.blue(titleColor)<Color.green(titleColor))
         {
             tv.setText("Adultered");
+            System.out.println("yyyyyyyyyyy");
         }
         else
         {
             tv.setText("Not Adultered");
+            System.out.println("nononononnonon");
         }
     }
 
