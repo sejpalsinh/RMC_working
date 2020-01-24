@@ -8,7 +8,7 @@
     {
       "title" : "Oils and Fats",
       "img" : "oils",
-      "src" : "oils"
+      "src" : "oil_products"
     },
     {
       "title" : "Sugars and Confectionery",
@@ -28,46 +28,142 @@
     }
   ],
 
+
+
   "milk_products": [{
     "id" : 1,
     "title": "Detection of water in milk",
-    "steps": ["1. Put a drop of milk on a polished slanting surface", "2. Pure milk either stays or flows slowly leaving a white trail behind", "3. Milk adultrated with water will flow immediately without leaving a mark"],
+    "steps": ["1. Put a drop of milk on a polished slanting surface.", "2. Pure milk either stays or flows slowly leaving a white trail behind.", "3. Milk adultrated with water will flow immediately without leaving a mark"],
     "imageSuccess": "milk_t1",
     "imageFailure": "milk_f1"
-  },
-    {"id" : 2,
-    "title": "Detection of water in milk",
-    "steps": ["1. Put a drop of milk on a polished slanting surface", "2. Pure milk either stays or flows slowly leaving a white trail behind", "3. Milk adultrated with water will flow immediately without leaving a mark"],
-    "imageSuccess": "milk_t1",
-    "imageFailure": "milk_f1"
-  }],
-
-  "milk_products-HN": [{
-    "title": "दूध की जांच विधि में पानी का पता लगाना:",
-    "steps": " \t1. एक पॉलिश की गई सतह पर दूध की एक बूंद डालें \n \t2. शुद्ध दूध या तो ठहर जाता है या धीरे-धीरे सफेद निशान छोड़ता है।  \n \t3. पानी से मिलावटी दूध बिना किसी निशान के तुरंत निकल जाएगा",
+  },{
+    "id" : 2,
+    "title": "Detection of detergent in milk",
+    "steps": ["1. Take 5 to 10mI of sample with an equal amount of water.","2. Shake the contents thoroughly.","3. If milk is adulterated with detergent, it forms dense lather.","4. Pure milk will form very thin foam layer due to agitation."],
     "imageSuccess": "milk_t1",
     "imageFailure": "milk_f1"
   },
     {
-    "title": "दूध की जांच विधि में पानी का पता लगाना:",
-    "steps": " \t1. एक पॉलिश की गई सतह पर दूध की एक बूंद डालें \n \t2. शुद्ध दूध या तो ठहर जाता है या धीरे-धीरे सफेद निशान छोड़ता है।  \n \t3. पानी से मिलावटी दूध बिना किसी निशान के तुरंत निकल जाएगा",
+      "id" : 3,
+      "title": "Detection of starch in milk and milk products (khoya, chenna, paneer)",
+      "steps": ["1. Boil 2-3 ml of sample with 5mI of water.", "2. Cool and add 2-3 drops of tincture of iodine.","3. Formation of blue colour indicates the presence of starch. (In the case of milk, addition of water and boiling is not required)"],
+      "imageSuccess": "milk_t1",
+      "imageFailure": "milk_f1"
+    },
+    {
+      "id" : 4,
+      "title": "Detection of mashed potatoes, sweet potatoes and other starches in ghee/butter",
+      "steps": ["1. Take 1/2 teaspoon of ghee/butter in a transparent glass bowl.", "2. Add 2-3 drops of tincture of iodine.", "3. Formation of blue colour indicates the presence of mashed potatoes, sweet potatoes and other starches."],
+      "imageSuccess": "milk_t1",
+      "imageFailure": "milk_f1"
+    }
+  ],
+
+  "milk_products-HN": [{
+    "id" : 1,
+    "title": "दूध में पानी का पता लगाना:",
+    "steps": ["1. एक पॉलिश की गई सतह पर दूध की एक बूंद डालें ","2. शुद्ध दूध या तो ठहर जाता है या धीरे-धीरे सफेद निशान छोड़ता है।  ","3. पानी से मिलावटी दूध बिना किसी निशान के तुरंत निकल जाएगा"],
     "imageSuccess": "milk_t1",
     "imageFailure": "milk_f1"
-  }],
+  },
+    {
+      "id" : 2,
+      "title": "दूध में डिटर्जेंट का पता लगाना",
+      "steps": ["1. पानी की समान मात्रा के साथ 5 से 10 मिलीलीटर नमूना लें ","2. सामग्री को अच्छी तरह से हिलाएं "," 3. यदि दूध में डिटर्जेंट की मिलावट की जाती है, तो यह धने चूने का निर्माण करता है। शुद्ध दूध आंदोलन के कारण बहुत पतली फोम परत बनाएगा।"],
+      "imageSuccess": "milk_t1",
+      "imageFailure": "milk_f1"
+    },
+    {
+      "id" : 3,
+      "title": "दूध और दूध उत्पादों (खोआ, चना, पनीर) में स्टार्च की जांच",
+      "steps": [ "1.  5 मिलीलीटर पानी के साथ नमूना के 2-3 मिलीलीटर उबालें। ","2. ठंडा करे ओर उसमे 2-3 बूंदे टीचर आयोडीन की डाले।","3. नीले रंग का गठन स्टार्च की उपस्थिति को इंगित करता है। (दूध के मामले में, पानी और उसे उबालने की आवश्यकता नहीं है)"],
+      "imageSuccess": "milk_t1",
+      "imageFailure": "milk_f1"
+    },
+    {
+      "id" : 4,
+      "title": "घी / मक्खन में मैश किए हुए आलू, शकरकंद और अन्य स्टार्च का पता लगाना",
+      "steps": ["1. पारदर्शी कांच के कटोरे में 1/2 चम्मच घी/ मक्खन लें।"," 2. टिंचर आयोडीन की 2-3 बूंदें डाले।","3. नीले रंग का गठन मैश किए हुए आल, मीठे आलू और अन्य स्टार्च की उपस्थिति को इंगित करता है।"],
+      "imageSuccess": "milk_t1",
+      "imageFailure": "milk_f1"
+    }
+  ],
 
   "milk_products-GJ": [
     {
-    "title": "દૂધમાં પાણીની તપાસ પરીક્ષણ પદ્ધતિ:",
-    "steps": " \t1. પોલિશ્ડ સ્લેંટિંગ સપાટી પર દૂધનો એક ટીપો મૂકો. \n \t2. શુદ્ધ દૂધ કાં તો રહે છે અથવા વહે છે ધીમે ધીમે સફેદ પગેરું પાછળ છોડી દો.   \n \t3. ઓ પાણીમાં ભેળસેળ કરેલું દૂધ નિશાન છોડ્યા વિના તરત જ વહેશે",
+      "id" : 1,
+      "title": "દૂધમાં પાણીની તપાસ",
+      "steps": ["1. પોલિશ્ડ સ્લેંટિંગ સપાટી પર દૂધનો એક ટીપો મૂકો. ","2. શુદ્ધ દૂધ રહે છે અથવા સફેદ પગેરું પાછળ છોડીને ધીરે ધીરે વહે છે.","3. પાણીમાં ભેળસેળ કરેલું દૂધ નિશાન છોડ્યા વિના તરત જ વહેશે"],
+      "imageSuccess": "milk_t1",
+      "imageFailure": "milk_f1"
+    },
+    {
+      "id" : 2,
+      "title": "દૂધની ડીટરજન્ટની તપાસ",
+      "steps": ["1. સમાન પ્રમાણમાં પાણી સાથે 5 થી 10 એમ.એલ નમૂના લો.","2. સમાવિષ્ટોને સારી રીતે હલાવો.","3. જો દૂધમાં ડીટરજન્ટ સાથે ભેળસેળ કરવામાં આવે છે, તો થર બનાવે છે.","4. શુદ્ધ દૂધ આંદોલનને કારણે ખૂબ જ પાતળા ફીણ સ્તરની રચના કરશે. "],
+      "imageSuccess": "milk_t1",
+      "imageFailure": "milk_f1"
+    },
+    {
+      "id" : 3,
+      "title": "દૂધ અને દૂધના ઉત્પાદનોમાં(ખોયા, ચેના, પનીર) સ્ટાર્ચની તપાસ",
+      "steps": ["1. 2-3 મિલીના નમૂનાને 5 મિલી પાણી સાથે   ઉકાળો.","2. ઠંડુ કરો અને આયોડિનના ટિંકચરના 2-3 ટીપાં ઉમેરો.","3. વાદળી રંગની રચના સ્ટાર્ચની હાજરી સૂચવે છે. (દૂધના કિસ્સામાં, પાણી ઉમેરવું જરૂરી નથી)"],
+      "imageSuccess": "milk_t1",
+      "imageFailure": "milk_f1"
+    },
+    {
+      "id" : 4,
+      "title": "ઘી / માખણમાં  છૂંદેલા બટાટા, શક્કરીયા અને  અન્ય સ્ટાર્ચની તપાસ",
+      "steps": ["1. પારદર્શક ગ્લાસ બાઉલમાં 2 ચમચી ઘી / માખણ લો.","2. આયોડિનના ટિંકચરના 2-3 ટીપાં ઉમેરો.","3. વાદળી રંગની રચના છૂંદેલા બટાટા, શક્કરીયા અને અન્ય સ્ટાર્ચની હાજરી સૂચવે છે."],
+      "imageSuccess": "milk_t1",
+      "imageFailure": "milk_f1"
+    }
+  ],
+
+  "oil_products" : [{
+    "id" : 1,
+    "title": "DETECTION OF OTHER OILS IN COCONUT OIL",
+    "steps": ["1. Take coconut oil in a transparent glass.","2. Place this glass in refrigerator for 30 minutes. (Do not keep in the freezer)","3. After refrigeration, coconut oil solidifies.","4. If coconut oil is adulterated, then other oils remain as a separate layer."],
     "imageSuccess": "milk_t1",
     "imageFailure": "milk_f1"
   },
     {
-    "title": "दદૂધમાં પાણીની તપાસ પરીક્ષણ પદ્ધતિ:",
-    "steps": " \t1. પોલિશ્ડ સ્લેંટિંગ સપાટી પર દૂધનો એક ટીપો મૂકો. \n \t2. શુદ્ધ દૂધ કાં તો રહે છે અથવા વહે છે ધીમે ધીમે સફેદ પગેરું પાછળ છોડી દો.   \n \t3. ઓ પાણીમાં ભેળસેળ કરેલું દૂધ નિશાન છોડ્યા વિના તરત જ વહેશે",
-    "imageSuccess": "milk_t1",
-    "imageFailure": "milk_f1"
-  }]
+      "id" : 2,
+      "title": "Detection of TOCP (Tri-Ortho-Cresyl-Phosphate) in oils and fats",
+      "steps": ["1. Take 2mI of sample of oil.","2. Add on a little amount of yellow butter (Solid).","3. Immediate formation of red colour indicates the presence of TOCP."],
+      "imageSuccess": "milk_t1",
+      "imageFailure": "milk_f1"
+    },
+    {
+      "id" : 3,
+      "title": "PROPER WINTRIZATION OF REFINED WINTERIZED SALAD OILS",
+      "steps": ["1. Take 100ml sample oil in bottle, cork tightly and seal with paraffin.","2. The bottle is completely submerged in bucket containing finely cracked ice and water is added until it rises to top of the bottle.","3. The bucket is kept filled solidly with ice by removing any excess water and adding ice when necessary.","4. After 5.5hours remove the bottle and examine oil.","5. If it is properly winterised, sample will be brilliant, clear and limpid."],
+      "imageSuccess": "milk_t1",
+      "imageFailure": "milk_f1"
+    }
+  ],
 
-
+  "oil_products-HN" : [
+    {
+      "id" : 1,
+      "title": "नारियल तेल में अन्य तेलों का पता लगाना",
+      "steps": ["1. एक पारदर्शी ग्लास में नारियल का तेल लें।","2. इस ग्लास को 30 मिनट के लिए फ्रिज में रखें। (फ्रीजर में न रखें) ","3. प्रशीतन  के बाद, नारियल तेल जम जाता है","4. यदि नारियल तेल में मिलावट होती है, तो अन्य तेल एक अलग परत के रूप में रहते हैं।"],
+      "imageSuccess": "milk_t1",
+      "imageFailure": "milk_f1"
+    },
+    {
+      "id" : 2,
+      "title": "तेल और वसा में TOCP (त्रि-ऑर्थो-क्रिसिल-फॉस्फेट) का पता लगाना",
+      "steps": ["1. 2ml तेल का नमूना लें।","2. थोड़ी मात्रा में पीला मक्खन (सॉलिड) मिलाएं।","3. लाल रंग का तत्काल गठन TOCP की उपस्थिति को इंगित करता है।"],
+      "imageSuccess": "milk_t1",
+      "imageFailure": "milk_f1"
+    },
+    {
+      "id" : 3,
+      "title": "परिष्कृत विंटराइज़्ड सलाद तेलों का उचित शीतकालीन परीक्षण",
+      "steps": ["1. बोतल कॉर्क में 100 मिलीलीटर नमूना तेल कसकर लें और पैराफिन के साथ सील करें।","2. बोतल पूरी तरह से टूटी हुई बर्फ वाली बाल्टी में डूबी हुई है और बोतल के ऊपर उठने तक पानी डाला जाता है।"," 3. बाल्टी को किसी भी अतिरिक्त पानी को हटाकर बर्फ से ठोस रूप से भरा जाता है और जब आवश्यक हो तब बर्फ डालकर"," 4. 5.5 घंटे के बाद बोतल हटा दें और तेल को जांच लें ।","5. यदि यह ठीक से विंटराइज़्ड है, तो नमूना शानदार, स्पष्ट और चूना होगा"],
+      "imageSuccess": "milk_t1",
+      "imageFailure": "milk_f1"
+    }
+  ]
 }
