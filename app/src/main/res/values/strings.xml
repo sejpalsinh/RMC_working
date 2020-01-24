@@ -3,4 +3,8 @@
     <string name="report_non_pickup_waste">REPORT NON PICKUP WASTE</string>
     <string name="report_dirty_toilet">REPORT DIRTY TOILET</string>
     <string name="injured_animal_report">INJURED ANIMAL REPORT</string>
+
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 </resources>
