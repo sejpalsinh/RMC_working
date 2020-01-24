@@ -1,0 +1,179 @@
+[
+    {
+         "name"  :  "tea" ,
+         "cause"   : [" liver disorder "],
+         "symptoms"   : [" Abdominal pain ,  swelling , Itchy skin , Dark urine colo , Nausea or vomiting "]
+    }, 
+
+    {
+         "name"  :  "milk" ,
+         "cause"   : [" stomach disorder "],
+         "symptoms"   : [" abdominal pain ,  cramps , nausea , headache , body aches "]
+    }, 
+    
+    {
+         "name"  :  "edible oils" ,
+         "cause"   : [" carcinogenic "],
+         "symptoms"   : [" Hoarseness ,  Difficulty swallowing ,  bruising , unexplained muscle or joint pain , Weight changes "]
+    },
+
+    {
+         "name"  :  "turmeric powder" ,
+         "cause"   : [" liver disorder "],
+         "symptoms"   : [" Abdominal pain ,  swelling , Itchy skin , Dark urine colo , Nausea or vomiting "]
+    },
+
+    {
+         "name"  :  "banana" ,
+         "cause"   : [" carcinogenic ,  digestive system ,  liver "],
+         "symptoms"   : [" Hoarseness ,  Difficulty swallowing ,  bruising , unexplained muscle or joint pain , Weight changes , Bleeding , Bloating , Constipation , Heartburn , Incontinence , Abdominal pain ,  swelling , Itchy skin , Dark urine colo , Nausea or vomiting ,  ,   "]
+    },
+
+    {
+         "name"  :  "common salt" ,
+         "cause"   : [" appendicitis "],
+         "symptoms"   : [" pain in your upper abdomen ,  loss of appetite , indigestion , nausea , vomiting "]
+    }, 
+
+    {
+         "name"  :  "green vegetables" ,
+         "cause"   : [" carcinogenic "],
+         "symptoms"   : [" Hoarseness ,  Difficulty swallowing ,  bruising , unexplained muscle or joint pain , Weight changes "]
+    },
+
+    {
+         "name"  :  "tea leaves" ,
+         "cause"   : [" extremely poisonous ,  carcinogenic "],
+         "symptoms"   : [" feeling and being sick ,  diarrhoea , drowsiness , dizziness or weakness , chills (shivering) , Hoarseness ,  Difficulty swallowing ,  bruising , unexplained muscle or joint pain , Weight changes "]
+    },
+
+    {
+         "name"  :  "apples" ,
+         "cause"   : [" digestive system ,  gastric problems "],
+         "symptoms"   : [" Bleeding , Bloating , Constipation , Heartburn , Incontinence ,  ,   "]
+    },
+
+    {
+         "name"  :  "mangoes" ,
+         "cause"   : [" headache ,  nausea ,  neaurological problems "],
+         "symptoms"   : [" vomiting ,  dizziness , gas , Seizures , Poor cognitive abilities , Unexplained pain , Decreased alertness , Partial or complete paralysis , Muscle weakness "]
+    },
+
+    {
+         "name"  :  "ice cream" ,
+         "cause"   : [" stomach ,  liver disorder "],
+         "symptoms"   : [" abdominal pain ,  cramps , nausea , headache , body aches , Abdominal pain ,  swelling , Itchy skin , Dark urine colo , Nausea or vomiting "]
+    },
+
+    {
+         "name"  :  "chili powder" ,
+         "cause"   : [" lose of vision ,  digestive problems "],
+         "symptoms"   : [" Bleeding , Bloating , Constipation , Heartburn , Incontinence "]
+    },
+    {
+         "name"  :  "bread" ,
+         "cause"   : [" diarrhea ,  vomiting ,  allergy "],
+         "symptoms"   : [" Abdominal cramps ,  Abdominal pain , Fever , Bloating , Blood in the stool , Mucus in the stool , itchy ,  red , watering eyes "]
+    },
+
+    {
+         "name"  :  "egg" ,
+         "cause"   : [" diarrhea ,  vomiting ,  allergy "],
+         "symptoms"   : [" Abdominal cramps ,  Abdominal pain , Fever , Bloating , Blood in the stool , Mucus in the stool , itchy ,  red , watering eyes "]
+    },
+
+    {
+         "name"  :  "gamma BHC" ,
+         "cause"   : [" cancer ,  respiratory failure "],
+         "symptoms"   : [" coughing up mucous ,  wheezing , rapid breathing , fatigue , anxiety , Blood in the urine ,  Hoarseness , Persistent lumps , swollen glands , Indigestion or difficulty swallowing , Unexpected weight loss, night sweats "]
+    },
+
+    {
+         "name"  :  "bean" ,
+         "cause"   : [" respiratory failure "],
+         "symptoms"   : [" coughing up mucous ,  wheezing , rapid breathing , fatigue , anxiety "]
+    },
+
+    {
+         "name"  :  "carrot" ,
+         "cause"   : [" cancer ,  blood defect "],
+         "symptoms"   : [" fatigue , shortness of breath , muscle weakness , Blood in the urine ,  Hoarseness , Persistent lumps , swollen glands , Indigestion or difficulty swallowing , Unexpected weight loss, night sweats "]
+    },
+
+    {
+         "name"  :  "capsicum" ,
+         "cause"   : [" liver ,  digestive ,  nervous system damage "],
+         "symptoms"   : [" Bleeding ,  Bloating , Constipation , Heartburn , Incontinence , Bleeding , Bloating , Constipation , Heartburn , Incontinence , Abdominal pain ,  swelling , Itchy skin , Dark urine colo , Nausea or vomiting "]
+    },
+
+    {
+         "name"  :  "tomato" ,
+         "cause"   : [" respiratory "],
+         "symptoms"   : [" coughing up mucous ,  wheezing , rapid breathing , fatigue , anxiety "]
+    },
+
+
+    {
+         "name"  :  "rice" ,
+         "cause"   : [" skin ,  lungs ,  bladder "],
+         "symptoms"   : ["  ,   "]
+    },
+
+    {
+         "name"  :  "black pepper" ,
+         "cause"   : [" liver disorder ,  stomach "],
+         "symptoms"   : [" Abdominal pain ,  swelling , Itchy skin , Dark urine colo , Nausea or vomiting , abdominal pain ,  cramps , nausea , headache , body aches "]
+    },
+
+    {
+         "name"  :  "oil" ,
+         "cause"   : [" epidemic dropsy "],
+         "symptoms"   : [" erythema ,  diarrhea , dyspnoea , glaucoma "]
+    },
+
+    {
+         "name"  :  "ghee" ,
+         "cause"   : [" anaemia ,  enlargement of heart "],
+         "symptoms"   : [" Difficulty concentrating ,  Dizziness , Pale skin , Leg cramps , Insomnia "]
+    },
+    {
+         "name"  :  "sugar" ,
+         "cause"   : [" stomach problems "],
+         "symptoms"   : [" abdominal pain ,  cramps , nausea , headache , body aches "]
+    },
+    {
+         "name"  :  "saupari" ,
+         "cause"   : [" cancer "],
+         "symptoms"   : [" Blood in the urine ,  Hoarseness , Persistent lumps , swollen glands , Indigestion or difficulty swallowing , Unexpected weight loss, night sweats "]
+    },
+    {
+         "name"  :  "juices" ,
+         "cause"   : [" carcinogenic "],
+         "symptoms"   : [" Hoarseness ,  Difficulty swallowing ,  bruising , unexplained muscle or joint pain , Weight changes "]
+    },
+    {
+         "name"  :  "pulses" ,
+         "cause"   : [" stomach pain "],
+         "symptoms"   : [" abdominal pain ,  cramps , nausea , headache , body aches "]
+    },
+    {
+         "name"  :  "jaggery" ,
+         "cause"   : [" vomiting ,  diarrhea "],
+         "symptoms"   : [" Abdominal cramps ,  Abdominal pain , Fever , Bloating , Blood in the stool , Mucus in the stool "]
+    },
+    {
+         "name"  :  "paneer" ,
+         "cause"   : [" stomach disorder "],
+         "symptoms"   : [" abdominal pain ,  cramps , nausea , headache , body aches "]
+    },
+    {
+         "name"  :  "food colour" ,
+         "cause"   : [" allergies "],
+         "symptoms"   : [" itchy ,  red , watering eyes "]
+    },
+    {
+         "name"  :  "hing" ,
+         "cause"   : [" dysentery "],
+         "symptoms"   : [" abdominal pain "]
+    }
+]

@@ -64,7 +64,8 @@ public class FoodTestRecycler extends RecyclerView.Adapter<FoodTestRecycler.Menu
 
     public class MenuFoodFragmentViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         TextView testTitle;
-        LinearLayout linearLayout;
+        LinearLayout linearLayout, fillImage;
+
         OnMenuTestListener onMenuTestListener;
 
         public MenuFoodFragmentViewHolder(@NonNull View itemView, OnMenuTestListener onMenuTestListener) {

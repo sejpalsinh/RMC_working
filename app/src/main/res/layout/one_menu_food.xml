@@ -8,7 +8,10 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:contentPadding="10dp">
+        android:layout_margin="10sp"
+        app:contentPadding="10sp"
+        app:cardCornerRadius="5sp"
+        android:elevation="10sp">
 
         <TextView
             android:id="@+id/testTitle"

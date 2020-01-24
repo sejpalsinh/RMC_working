@@ -147,6 +147,7 @@ public class MenuFoodFragment extends Fragment implements FoodTestRecycler.OnMen
                     bundle.putStringArray("steps", steps);
                     bundle.putString("imageSuccess", object.getString("imageSuccess"));
 
+
                     moveFragment.setArguments(bundle);
 
 //                    Toast.makeText(getContext(), steps[0], Toast.LENGTH_SHORT).show();

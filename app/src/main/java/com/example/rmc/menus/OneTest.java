@@ -1,10 +1,12 @@
 package com.example.rmc.menus;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -21,7 +23,6 @@ import java.util.TimerTask;
 
 public class OneTest extends Fragment {
     int counter = 1;
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -40,6 +41,9 @@ public class OneTest extends Fragment {
 
         TextView oneTestTitle = getView().findViewById(R.id.oneTestTitle);
         oneTestTitle.setText(getArguments().getString("title"));
+
+        String imgSuccess = getArguments().getString("imageSuccess");
+        Log.i("imgS", imgSuccess);
 
         final LinearLayout linearLayout = getActivity().findViewById(R.id.fillSteps);
 
@@ -90,6 +94,14 @@ public class OneTest extends Fragment {
 
         }
         linearLayout.addView(lstCheckbox.get(0));
+
+
+
+        int resID = getContext().getResources().getIdentifier(imgSuccess,
+                "drawable", getContext().getPackageName());
+
+        ImageView imageView = getView().findViewById(R.id.imgSuccess);
+        imageView.setImageResource(resID);
 
     }
 }
