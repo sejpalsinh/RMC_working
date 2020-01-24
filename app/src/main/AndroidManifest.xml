@@ -11,15 +11,19 @@
     <application
         android:allowBackup="true"
         android:icon="@drawable/rmc"
-        android:roundIcon="@drawable/rmc"
         android:label="@string/app_name"
+        android:roundIcon="@drawable/rmc"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".MenuFoodAdulteration">
-
-        </activity>
+        <activity android:name=".photo_blackppr"></activity>
+        <activity android:name=".photo_greenpea" />
+        <activity android:name=".photo_potato" />
+        <activity android:name=".photo_okra" />
+        <activity android:name=".photo_chili" />
+        <activity android:name=".Photobased" />
+        <activity android:name=".MenuFoodAdulteration" />
         <activity android:name=".Splash_screen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -51,9 +55,7 @@
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".Food_adultration_main"
-            android:parentActivityName=".MainActivity">
-
-        </activity>
+            android:parentActivityName=".MainActivity" />
         <activity android:name=".MainActivity" />
     </application>
 

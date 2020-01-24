@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:title="Logout"
+        android:onClick="log_out"
+        android:id="@+id/logout" />
+    <item
+        android:id="@+id/abt_us"
+        android:title="About Us"
+        android:onClick="abt_Us" />
+</menu>

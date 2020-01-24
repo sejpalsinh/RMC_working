@@ -1,6 +1,7 @@
 package com.example.rmc;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -21,10 +22,11 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 public class UserLogin extends AppCompatActivity {
-    EditText mail;
+    EditText mail,u_name,u_number;
     SharedPreferences preferences;
     SharedPreferences.Editor editor;
     private ProgressDialog progress = null;
+    @SuppressLint("CutPasteId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +39,9 @@ public class UserLogin extends AppCompatActivity {
             finish();
         }
         mail = findViewById(R.id.et_mail);
+        u_name = findViewById(R.id.et_name);
+        u_number = findViewById(R.id.et_number);
+
     }
     public void showLoadingDialog() {
 
@@ -52,12 +57,23 @@ public class UserLogin extends AppCompatActivity {
         if (progress != null && progress.isShowing()) {
             progress.dismiss();
         }
+
     }
 
     private void uploadUserdata() {
         if (mail.getText().toString().trim().isEmpty()) {
             mail.setError("Enter Mail address first");
             mail.requestFocus();
+            return;
+        }
+        if (u_name.getText().toString().trim().isEmpty()) {
+            u_name.setError("Enter Your name Please ");
+            mail.requestFocus();
+            return;
+        }
+        if (u_number.getText().toString().trim().isEmpty()) {
+            u_number.setError("Enter Your Name Please");
+            u_number.requestFocus();
             return;
         }
         if(!isConnected())
@@ -75,6 +91,8 @@ public class UserLogin extends AppCompatActivity {
                             JSONObject obj = new JSONObject(new String(response.data));
                             Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_SHORT).show();
                             editor.putString("uemail",mail.getText().toString());
+                            editor.putString("uname",u_name.getText().toString());
+                            editor.putString("unumber",u_number.getText().toString());
                             editor.commit();
                             System.out.println("msgmsgmsg :"+obj.getString("message"));
                             startActivity(new Intent(getApplicationContext(),MainActivity.class));

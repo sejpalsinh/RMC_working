@@ -26,7 +26,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 public class Waste_pickupreport_main extends AppCompatActivity {
-    EditText et_name,et_number,et_location,et_discription;
+    EditText et_location,et_discription;
     public static Bitmap bitmap;
     Boolean imageSet = true;
     SharedPreferences preferences;
@@ -36,8 +36,6 @@ public class Waste_pickupreport_main extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_waste_pickupreport_main);
-        et_name = findViewById(R.id.et_name);
-        et_number = findViewById(R.id.et_number);
         et_location = findViewById(R.id.et_location);
         et_discription = findViewById(R.id.et_discription);
         preferences = getSharedPreferences("ssiprajkot", MODE_PRIVATE);
@@ -87,16 +85,7 @@ public class Waste_pickupreport_main extends AppCompatActivity {
         startActivity(new Intent(getApplicationContext(),Showimg_toiletreport.class));
     }
     public void senDataServer(View view) {
-        if (et_name.getText().toString().trim().isEmpty()) {
-            et_name.setError("Enter Name first");
-            et_name.requestFocus();
-            return;
-        }
-        if (et_number.getText().toString().trim().isEmpty()) {
-            et_number.setError("Enter Number first");
-            et_number.requestFocus();
-            return;
-        }
+
         if (et_location.getText().toString().trim().isEmpty()) {
             et_location.setError("Enter Location first");
             et_location.requestFocus();
@@ -123,8 +112,7 @@ public class Waste_pickupreport_main extends AppCompatActivity {
     }
     public void clearForm()
     {
-        et_name.setText("");
-        et_number.setText("");
+
         et_location.setText("");
         et_discription.setText("");
         imageSet = true;
@@ -179,8 +167,8 @@ public class Waste_pickupreport_main extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<>();
-                params.put("name",et_name.getText().toString());
-                params.put("number",et_number.getText().toString());
+                params.put("name",preferences.getString("uname", "sejpalsinh"));
+                params.put("number",preferences.getString("unumber", "9898900099"));
                 params.put("location",et_location.getText().toString());
                 params.put("discription",et_discription.getText().toString());
                 params.put("email",preferences.getString("uemail", "sejsinh01@gmail.com"));
