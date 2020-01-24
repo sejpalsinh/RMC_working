@@ -3,6 +3,9 @@ package com.example.rmc.menuListOut;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
@@ -35,6 +38,37 @@ public class MenuFoodFragment extends Fragment implements FoodTestRecycler.OnMen
     List<FoodTestModel> modelList;
     FoodTestRecycler foodTestRecycler;
 
+    String menuType;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.language, menu);
+    }
+
+
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.english:
+                fillMenuFoodFragment(menuType);
+                break;
+            case R.id.hindi:
+                fillMenuFoodFragment(menuType+"-HN");
+                break;
+            case R.id.gujarati:
+                fillMenuFoodFragment(menuType+"-GJ");
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     @Nullable
     @Override
@@ -48,9 +82,6 @@ public class MenuFoodFragment extends Fragment implements FoodTestRecycler.OnMen
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-
-
-
     }
 
     @Override
@@ -62,7 +93,20 @@ public class MenuFoodFragment extends Fragment implements FoodTestRecycler.OnMen
 
             Log.i("json_menu_all_list", json_menu_all.toString());
 
-            menuList = json_menu_all.getJSONArray("milk_products");
+            menuType = getArguments().getString("menuType");
+
+            fillMenuFoodFragment(menuType);
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void fillMenuFoodFragment(String menuType) {
+        Log.i("menuType", menuType);
+
+        try {
+            menuList = json_menu_all.getJSONArray(menuType);
             Log.i("json_menu_all_list", menuList.toString());
 
             recyclerView = getView().findViewById(R.id.fragment_menu_food_recycler);
@@ -71,7 +115,6 @@ public class MenuFoodFragment extends Fragment implements FoodTestRecycler.OnMen
 
             recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
             recyclerView.setAdapter(foodTestRecycler);
-
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -91,12 +134,15 @@ public class MenuFoodFragment extends Fragment implements FoodTestRecycler.OnMen
                 if(object.getInt("id") == id){
                     Bundle bundle = new Bundle();
                     bundle.putString("title", object.getString("title"));
+
                     JSONArray jsonSteps = object.getJSONArray("steps");
                     String[] steps = new String[jsonSteps.length()];
 
-                    for(int j = 0; i < jsonSteps.length(); i++){
-                        steps[i] = jsonSteps.getString(i);
+                    for(int one_step = 0; one_step < jsonSteps.length(); one_step++){
+                        steps[one_step] = jsonSteps.getString(one_step);
+                        Log.i("Steps ", jsonSteps.getString(one_step));
                     }
+
 
                     bundle.putStringArray("steps", steps);
                     bundle.putString("imageSuccess", object.getString("imageSuccess"));
@@ -105,6 +151,8 @@ public class MenuFoodFragment extends Fragment implements FoodTestRecycler.OnMen
 
 //                    Toast.makeText(getContext(), steps[0], Toast.LENGTH_SHORT).show();
 //                    Log.i("Steps", steps.toString());
+
+                    break;
 
                 }
             } catch (JSONException e) {

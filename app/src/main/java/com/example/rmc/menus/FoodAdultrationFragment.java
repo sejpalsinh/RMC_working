@@ -70,7 +70,13 @@ public class FoodAdultrationFragment extends Fragment implements MenuFoodRecycle
     public void OnMenuFoodClickListener(int position) {
         String src = menuFoodRecycler.getClickedMenuName(position);
         Toast.makeText(getContext(), src, Toast.LENGTH_SHORT).show();
+
         Fragment moveFragment = new MenuFoodFragment();
+
+        Bundle bundle = new Bundle();
+        bundle.putString("menuType", src);
+        moveFragment.setArguments(bundle);
+
         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,
                 moveFragment).commit();
         Log.i("mnuList", src);

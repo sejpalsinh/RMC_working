@@ -69,6 +69,8 @@ public class OneTest extends Fragment {
         stepsCounter = getView().findViewById(R.id.stepsCounter);
         stepsCounter.setText("Step " + counter + " of " + steps.length);
 
+        lstCheckbox.get(0).setText(steps[0]);
+
         for(int i = 0; i < steps.length - 1; i++)
         {
 
