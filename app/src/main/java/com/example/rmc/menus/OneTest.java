@@ -87,7 +87,6 @@ public class OneTest extends Fragment {
 
 
         }
-
         linearLayout.addView(lstCheckbox.get(0));
 
     }
