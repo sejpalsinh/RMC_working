@@ -19,8 +19,8 @@ public class BottomNavMain extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bottom_nav_main);
 
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNav);
-        bottomNavigationView.setOnNavigationItemSelectedListener(navListener);
+//        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNav);
+//        bottomNavigationView.setOnNavigationItemSelectedListener(navListener);
 
         getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,
                 new HomeFragment()).commit();

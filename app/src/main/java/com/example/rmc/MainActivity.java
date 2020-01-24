@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void goto_1_activity(View view) {
-        startActivity(new Intent(getApplicationContext(), MenuFoodAdulteration.class));
+        startActivity(new Intent(getApplicationContext(), BottomNavMain.class));
     }
 
 

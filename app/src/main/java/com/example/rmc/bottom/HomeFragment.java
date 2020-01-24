@@ -1,5 +1,6 @@
 package com.example.rmc.bottom;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,11 +12,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.rmc.Photobased;
 import com.example.rmc.R;
 import com.example.rmc.menus.FoodAdultrationFragment;
 
 public class HomeFragment extends Fragment {
     Button food_adultration;
+    Button button4;
 
     @Nullable
     @Override
@@ -32,6 +35,17 @@ public class HomeFragment extends Fragment {
 
             }
         });
+
+        button4 = view.findViewById(R.id.button4);
+        button4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getActivity(), Photobased.class);
+                startActivity(i);
+            }
+        });
+
+
 
         return view;
     }
