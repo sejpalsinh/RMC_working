@@ -55,6 +55,7 @@
             android:layout_weight="1"
             android:background="#CE2B2B"
             android:textColor="#fff"
+            android:onClick="gotoFoodComplaint"
             android:text="Failure" />
 
         <Button

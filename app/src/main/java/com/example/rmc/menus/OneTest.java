@@ -1,10 +1,12 @@
 package com.example.rmc.menus;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -15,6 +17,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.rmc.R;
+import com.example.rmc.food_complain;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +25,10 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class OneTest extends Fragment {
+
     int counter = 1;
+    Button gotoFoodComplaint;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -102,6 +108,15 @@ public class OneTest extends Fragment {
 
         ImageView imageView = getView().findViewById(R.id.imgSuccess);
         imageView.setImageResource(resID);
+
+        gotoFoodComplaint = getView().findViewById(R.id.button2);
+        gotoFoodComplaint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getActivity(), food_complain.class);
+                startActivity(i);
+            }
+        });
 
     }
 }

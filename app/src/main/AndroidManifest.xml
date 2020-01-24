@@ -58,6 +58,7 @@
         <activity android:name=".photo_greenpea" />
         <activity android:name=".photo_okra" />
         <activity android:name=".photo_potato" />
+        <activity android:name=".DiseaseData"/>
     </application>
 
 </manifest>
